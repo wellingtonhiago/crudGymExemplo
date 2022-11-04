@@ -1,16 +1,21 @@
 package com.java.crudGymExemplo;
 
-
+import javax.persistence.*;
 
 // @Entity, @Document, @KeySpace, ou alguma outra anotação aqui.
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
 @Entity
+@Table(name = "Treadmill")
 public class Treadmill {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "order_id")
+    private Long orderId;
+
+    @Column(name = "code")
     private String code;
+
+    @Column(name = "model")
     private String model;
 
     public Treadmill(){
@@ -38,4 +43,11 @@ public class Treadmill {
         this.model = model;
     }
 
+    public Long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
 }
